@@ -13,3 +13,4 @@ c:\users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2.
 c:\users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2.0.pdb
 C:\Users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2.0.csprojAssemblyReference.cache
 C:\Users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2.0.exe.config
+C:\Users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2._0.Check.resources
