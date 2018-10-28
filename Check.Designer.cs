@@ -30,13 +30,17 @@
         {
             this.btnEx = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblEntrada = new System.Windows.Forms.Label();
+            this.lblSalida = new System.Windows.Forms.Label();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.lblEnt = new System.Windows.Forms.Label();
+            this.lblSal = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEx
             // 
-            this.btnEx.Location = new System.Drawing.Point(331, 370);
+            this.btnEx.Location = new System.Drawing.Point(67, 208);
             this.btnEx.Name = "btnEx";
             this.btnEx.Size = new System.Drawing.Size(75, 44);
             this.btnEx.TabIndex = 0;
@@ -46,36 +50,82 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(487, 230);
+            this.textBox1.Location = new System.Drawing.Point(171, 217);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 1;
             // 
-            // label1
+            // lblID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(487, 130);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblID.AutoSize = true;
+            this.lblID.Enabled = false;
+            this.lblID.Location = new System.Drawing.Point(63, 54);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(65, 20);
+            this.lblID.TabIndex = 2;
+            this.lblID.Text = "Nombre";
             // 
-            // label2
+            // lblEntrada
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 147);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.lblEntrada.AutoSize = true;
+            this.lblEntrada.Enabled = false;
+            this.lblEntrada.Location = new System.Drawing.Point(63, 101);
+            this.lblEntrada.Name = "lblEntrada";
+            this.lblEntrada.Size = new System.Drawing.Size(66, 20);
+            this.lblEntrada.TabIndex = 3;
+            this.lblEntrada.Text = "Entrada";
+            // 
+            // lblSalida
+            // 
+            this.lblSalida.AutoSize = true;
+            this.lblSalida.Enabled = false;
+            this.lblSalida.Location = new System.Drawing.Point(63, 150);
+            this.lblSalida.Name = "lblSalida";
+            this.lblSalida.Size = new System.Drawing.Size(53, 20);
+            this.lblSalida.TabIndex = 4;
+            this.lblSalida.Text = "Salida";
+            // 
+            // lblNom
+            // 
+            this.lblNom.AutoSize = true;
+            this.lblNom.Enabled = false;
+            this.lblNom.Location = new System.Drawing.Point(134, 54);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(13, 20);
+            this.lblNom.TabIndex = 5;
+            this.lblNom.Text = " ";
+            // 
+            // lblEnt
+            // 
+            this.lblEnt.AutoSize = true;
+            this.lblEnt.Enabled = false;
+            this.lblEnt.Location = new System.Drawing.Point(134, 101);
+            this.lblEnt.Name = "lblEnt";
+            this.lblEnt.Size = new System.Drawing.Size(13, 20);
+            this.lblEnt.TabIndex = 6;
+            this.lblEnt.Text = " ";
+            // 
+            // lblSal
+            // 
+            this.lblSal.AutoSize = true;
+            this.lblSal.Enabled = false;
+            this.lblSal.Location = new System.Drawing.Point(134, 150);
+            this.lblSal.Name = "lblSal";
+            this.lblSal.Size = new System.Drawing.Size(13, 20);
+            this.lblSal.TabIndex = 7;
+            this.lblSal.Text = " ";
             // 
             // Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSal);
+            this.Controls.Add(this.lblEnt);
+            this.Controls.Add(this.lblNom);
+            this.Controls.Add(this.lblSalida);
+            this.Controls.Add(this.lblEntrada);
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnEx);
             this.Name = "Check";
@@ -90,7 +140,11 @@
 
         private System.Windows.Forms.Button btnEx;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblEntrada;
+        private System.Windows.Forms.Label lblSalida;
+        private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.Label lblEnt;
+        private System.Windows.Forms.Label lblSal;
     }
 }

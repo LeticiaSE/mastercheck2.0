@@ -27,7 +27,7 @@ namespace MasterCheck2._0
         private void btnEx_Click(object sender, EventArgs e)
         {
             string sql = "select count(*) from checks where (ID = @ID)";
-            string sql2 = "select count(*) from checks where (ID = @IDS) and (Entrada=@Entrada)";
+        //    string sql2 = "select count(*) from checks where (ID = @IDS) and (Entrada=@Entrada)";
             using (MySqlConnection cn = new MySqlConnection(cnn))
             {
                 cn.Open();
@@ -37,9 +37,29 @@ namespace MasterCheck2._0
                     var result = Convert.ToInt32(cmd.ExecuteScalar());
                     if (result > 0)
                     {
-                        label1.Text = "alteracion completa";
+                       
                         string alter = string.Format("update checks set Salida ='{0}' where ID='{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), textBox1.Text);
                         db.executecommand(alter);
+                        lblNom.Text= textBox1.Text;
+                        lblSal.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        lblEnt.Visible = true;
+                        lblEntrada.Visible = true;
+                        lblID.Visible = true;
+                        lblNom.Visible = true;
+                        lblSal.Visible = true;
+                        lblSalida.Visible = true;
+                        //timer de 5 segundos
+                        lblSal.Text = "";
+                        lblNom.Text = "";
+                        lblEnt.Visible = false;
+                        lblEntrada.Visible = false;
+                        lblID.Visible = false;
+                        lblNom.Visible = false;
+                        lblSal.Visible = false;
+                        lblSalida.Visible = false;
+
+                        //
+
                         /*       cmd.Parameters.AddWithValue("@IDS", textBox1.Text);
                                cmd.Parameters.AddWithValue("@Entrada", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                                var r = Convert.ToInt32(cmd.ExecuteScalar());
@@ -56,9 +76,27 @@ namespace MasterCheck2._0
                     }
                     else
                     {
-                        label1.Text = "se inserto";
+                        
                         string add = string.Format("insert into checks (`ID`,`Entrada`,`Salida`) values ('{0}','{1}','{2}')", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "");
                         db.executecommand(add);
+                       lblEnt.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        lblNom.Text = textBox1.Text;
+                        lblEnt.Visible = true;
+                        lblEntrada.Visible = true;
+                        lblID.Visible = true;
+                        lblNom.Visible = true;
+                        lblSal.Visible = true;
+                        lblSalida.Visible = true;
+                        //timer de 5 segundos
+                        lblEnt.Text = "";
+                        lblNom.Text = "";
+                        lblEnt.Visible = false;
+                        lblEntrada.Visible = false;
+                        lblID.Visible = false;
+                        lblNom.Visible = false;
+                        lblSal.Visible = false;
+                        lblSalida.Visible = false;
+                        //
                     }
                 }
             }

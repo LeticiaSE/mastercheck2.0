@@ -57,6 +57,7 @@
     <Compile Include="Check.Designer.cs">
       <DependentUpon>Check.cs</DependentUpon>
     </Compile>
+    <Compile Include="CRUD.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
