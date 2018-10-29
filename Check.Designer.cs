@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnEx = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.lblNom = new System.Windows.Forms.Label();
             this.lblEnt = new System.Windows.Forms.Label();
             this.lblSal = new System.Windows.Forms.Label();
+            this.mensaje = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnEx
@@ -88,7 +90,6 @@
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Enabled = false;
             this.lblNom.Location = new System.Drawing.Point(134, 54);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(13, 20);
@@ -98,7 +99,6 @@
             // lblEnt
             // 
             this.lblEnt.AutoSize = true;
-            this.lblEnt.Enabled = false;
             this.lblEnt.Location = new System.Drawing.Point(134, 101);
             this.lblEnt.Name = "lblEnt";
             this.lblEnt.Size = new System.Drawing.Size(13, 20);
@@ -108,12 +108,16 @@
             // lblSal
             // 
             this.lblSal.AutoSize = true;
-            this.lblSal.Enabled = false;
             this.lblSal.Location = new System.Drawing.Point(134, 150);
             this.lblSal.Name = "lblSal";
             this.lblSal.Size = new System.Drawing.Size(13, 20);
             this.lblSal.TabIndex = 7;
             this.lblSal.Text = " ";
+            // 
+            // mensaje
+            // 
+            this.mensaje.Interval = 5000;
+            this.mensaje.Tick += new System.EventHandler(this.mensaje_Tick);
             // 
             // Check
             // 
@@ -146,5 +150,6 @@
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblEnt;
         private System.Windows.Forms.Label lblSal;
+        private System.Windows.Forms.Timer mensaje;
     }
 }

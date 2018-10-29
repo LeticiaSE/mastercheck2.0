@@ -49,7 +49,7 @@ namespace MasterCheck2._0
                         lblSal.Visible = true;
                         lblSalida.Visible = true;
                         //timer de 5 segundos
-                        lblSal.Text = "";
+                      /*  lblSal.Text = "";
                         lblNom.Text = "";
                         lblEnt.Visible = false;
                         lblEntrada.Visible = false;
@@ -57,7 +57,7 @@ namespace MasterCheck2._0
                         lblNom.Visible = false;
                         lblSal.Visible = false;
                         lblSalida.Visible = false;
-
+                          /*
                         //
 
                         /*       cmd.Parameters.AddWithValue("@IDS", textBox1.Text);
@@ -81,21 +81,15 @@ namespace MasterCheck2._0
                         db.executecommand(add);
                        lblEnt.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         lblNom.Text = textBox1.Text;
-                        lblEnt.Visible = true;
-                        lblEntrada.Visible = true;
-                        lblID.Visible = true;
-                        lblNom.Visible = true;
-                        lblSal.Visible = true;
-                        lblSalida.Visible = true;
+                    //    lblEnt.Visible = true;
+                      //  lblEntrada.Visible = true;
+                      //  lblID.Visible = true;
+                      //  lblNom.Visible = true;
+                       // lblSal.Visible = true;
+                       // lblSalida.Visible = true;
                         //timer de 5 segundos
-                        lblEnt.Text = "";
-                        lblNom.Text = "";
-                        lblEnt.Visible = false;
-                        lblEntrada.Visible = false;
-                        lblID.Visible = false;
-                        lblNom.Visible = false;
-                        lblSal.Visible = false;
-                        lblSalida.Visible = false;
+                        mensaje.Enabled = true;
+                        mensaje.Start();
                         //
                     }
                 }
@@ -106,6 +100,20 @@ namespace MasterCheck2._0
             
             //String In = string.Format("INSERT INTO checks (`id`,`Entrada`,`Salida`) + VALUES('{0}','{1}','{2}');",
               //  )
+        }
+
+        private void mensaje_Tick(object sender, EventArgs e)
+        {
+            lblEnt.Text = "";
+            lblNom.Text = "";
+            lblSal.Text = "";
+            
+           // lblEnt.Visible = false;
+         //   lblEntrada.Visible = false;
+         //   lblID.Visible = false;
+          //  lblNom.Visible = false;
+           // lblSal.Visible = false;
+         //   lblSalida.Visible = false;
         }
     }
 }
