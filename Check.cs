@@ -78,6 +78,8 @@ namespace MasterCheck2._0
                     {
                         
                         string add = string.Format("insert into checks (`ID`,`Entrada`,`Salida`) values ('{0}','{1}','{2}')", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "");
+                        string asistencia = string.Format("update registros set Asistencias = Asistencias + 1 where idrfid = 1");
+                        db.executecommand(asistencia);
                         db.executecommand(add);
                        lblEnt.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         lblNom.Text = textBox1.Text;
