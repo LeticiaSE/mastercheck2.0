@@ -39,7 +39,9 @@ namespace MasterCheck2._0
                     {
                        
                         string alter = string.Format("update checks set Salida ='{0}' where ID='{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), textBox1.Text);
+                        string his = string.Format("update historial set Salida='{0}' where id='{1}'", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                         db.executecommand(alter);
+                        db.executecommand(his);
                         lblNom.Text= textBox1.Text;
                         lblSal.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         lblEnt.Visible = true;
@@ -78,9 +80,11 @@ namespace MasterCheck2._0
                     {
                         
                         string add = string.Format("insert into checks (`ID`,`Entrada`,`Salida`) values ('{0}','{1}','{2}')", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "");
+                        string historial = string.Format("insert into historial values ('{0}','{1}','{2}')", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+ "");
                         string asistencia = string.Format("update registros set Asistencias = Asistencias + 1 where idrfid = 1");
                         db.executecommand(asistencia);
                         db.executecommand(add);
+                        db.executecommand(historial);
                        lblEnt.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         lblNom.Text = textBox1.Text;
                     //    lblEnt.Visible = true;

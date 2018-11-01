@@ -47,8 +47,8 @@
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbID = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.lblpuesto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -144,7 +144,7 @@
             // lbl
             // 
             this.lbl.AutoSize = true;
-            this.lbl.Location = new System.Drawing.Point(22, 226);
+            this.lbl.Location = new System.Drawing.Point(22, 257);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(47, 20);
             this.lbl.TabIndex = 12;
@@ -152,7 +152,7 @@
             // 
             // txtEdad
             // 
-            this.txtEdad.Location = new System.Drawing.Point(111, 223);
+            this.txtEdad.Location = new System.Drawing.Point(111, 254);
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(43, 26);
             this.txtEdad.TabIndex = 13;
@@ -160,7 +160,7 @@
             // lblDepartamento
             // 
             this.lblDepartamento.AutoSize = true;
-            this.lblDepartamento.Location = new System.Drawing.Point(22, 279);
+            this.lblDepartamento.Location = new System.Drawing.Point(22, 310);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(112, 20);
             this.lblDepartamento.TabIndex = 14;
@@ -169,7 +169,7 @@
             // cbDepartamento
             // 
             this.cbDepartamento.FormattingEnabled = true;
-            this.cbDepartamento.Location = new System.Drawing.Point(149, 276);
+            this.cbDepartamento.Location = new System.Drawing.Point(149, 307);
             this.cbDepartamento.Name = "cbDepartamento";
             this.cbDepartamento.Size = new System.Drawing.Size(121, 28);
             this.cbDepartamento.TabIndex = 15;
@@ -198,33 +198,24 @@
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
             this.modificarToolStripMenuItem.Text = "Modificar";
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // insertarToolStripMenuItem
             // 
             this.insertarToolStripMenuItem.Name = "insertarToolStripMenuItem";
-            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
             this.insertarToolStripMenuItem.Text = "Insertar";
-            // 
-            // cbID
-            // 
-            this.cbID.FormattingEnabled = true;
-            this.cbID.Location = new System.Drawing.Point(526, 336);
-            this.cbID.Name = "cbID";
-            this.cbID.Size = new System.Drawing.Size(48, 28);
-            this.cbID.TabIndex = 17;
-            this.cbID.SelectedIndexChanged += new System.EventHandler(this.cbID_SelectedIndexChanged);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(387, 336);
+            this.btnGuardar.Location = new System.Drawing.Point(626, 372);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(86, 28);
             this.btnGuardar.TabIndex = 18;
@@ -232,13 +223,22 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // lblpuesto
+            // 
+            this.lblpuesto.AutoSize = true;
+            this.lblpuesto.Location = new System.Drawing.Point(22, 216);
+            this.lblpuesto.Name = "lblpuesto";
+            this.lblpuesto.Size = new System.Drawing.Size(59, 20);
+            this.lblpuesto.TabIndex = 19;
+            this.lblpuesto.Text = "Puesto";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 412);
+            this.Controls.Add(this.lblpuesto);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.cbID);
             this.Controls.Add(this.cbDepartamento);
             this.Controls.Add(this.lblDepartamento);
             this.Controls.Add(this.txtEdad);
@@ -286,8 +286,8 @@
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertarToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbID;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Label lblpuesto;
     }
 }
 
