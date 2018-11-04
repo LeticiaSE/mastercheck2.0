@@ -39,7 +39,7 @@ namespace MasterCheck2._0
                     {
                        
                         string alter = string.Format("update checks set Salida ='{0}' where ID='{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), textBox1.Text);
-                        string his = string.Format("update historial set Salida='{0}' where id='{1}'", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        string his = string.Format("update historial set Salida='{0}' where id='{1}'",  DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), textBox1.Text);
                         db.executecommand(alter);
                         db.executecommand(his);
                         lblNom.Text= textBox1.Text;
@@ -50,53 +50,42 @@ namespace MasterCheck2._0
                         lblNom.Visible = true;
                         lblSal.Visible = true;
                         lblSalida.Visible = true;
-                        //timer de 5 segundos
-                      /*  lblSal.Text = "";
-                        lblNom.Text = "";
-                        lblEnt.Visible = false;
-                        lblEntrada.Visible = false;
-                        lblID.Visible = false;
-                        lblNom.Visible = false;
-                        lblSal.Visible = false;
-                        lblSalida.Visible = false;
-                          /*
-                        //
-
-                        /*       cmd.Parameters.AddWithValue("@IDS", textBox1.Text);
-                               cmd.Parameters.AddWithValue("@Entrada", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                               var r = Convert.ToInt32(cmd.ExecuteScalar());
-                               if(r > 0) {
-                                   label2.Text = "insertadoS";
-                               string add = string.Format("insert into checks (`ID`,`Entrada`,`Salida`) values ('{0}','{1}','{2}')", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "");
-                                   db.executecommand(add);
-                           }
-                           else {
-                               string alter = string.Format("update checks set Salida '{0}' where ID='{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),textBox1.Text);
-                                   db.executecommand(alter);
-                               } */
+                      
 
                     }
                     else
                     {
-                        
+                        //
+                        var cn2 = new MySqlConnection(cnn);
+                        cn2.Open();
+                        MySqlCommand cmd2 = cn.CreateCommand();
+                        cmd2.CommandType = CommandType.Text;
+                        cmd2.CommandText = "select * from registros where idrfid='" + textBox1.Text + "'";
+                        cmd2.ExecuteNonQuery();
+
+
+                       
+                        DataTable dt = new DataTable();
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd2);
+                        da.Fill(dt);
+                        foreach(DataRow dr in dt.Rows)
+                        {
+                            lblNom.Text = dr["Nombre"].ToString();
+                            lbldepartamento.Text = dr["Departamento"].ToString();
+                        }
+
+                        //
                         string add = string.Format("insert into checks (`ID`,`Entrada`,`Salida`) values ('{0}','{1}','{2}')", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "");
-                        string historial = string.Format("insert into historial values ('{0}','{1}','{2}')", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+ "");
+                        string historial = string.Format("insert into historial values ('{0}','{1}','{2}')", textBox1.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "");
                         string asistencia = string.Format("update registros set Asistencias = Asistencias + 1 where idrfid = 1");
                         db.executecommand(asistencia);
                         db.executecommand(add);
                         db.executecommand(historial);
                        lblEnt.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        lblNom.Text = textBox1.Text;
-                    //    lblEnt.Visible = true;
-                      //  lblEntrada.Visible = true;
-                      //  lblID.Visible = true;
-                      //  lblNom.Visible = true;
-                       // lblSal.Visible = true;
-                       // lblSalida.Visible = true;
-                        //timer de 5 segundos
+                     
                         mensaje.Enabled = true;
                         mensaje.Start();
-                        //
+                      
                     }
                 }
             }
@@ -104,8 +93,6 @@ namespace MasterCheck2._0
             
 
             
-            //String In = string.Format("INSERT INTO checks (`id`,`Entrada`,`Salida`) + VALUES('{0}','{1}','{2}');",
-              //  )
         }
 
         private void mensaje_Tick(object sender, EventArgs e)
@@ -113,13 +100,13 @@ namespace MasterCheck2._0
             lblEnt.Text = "";
             lblNom.Text = "";
             lblSal.Text = "";
-            
-           // lblEnt.Visible = false;
-         //   lblEntrada.Visible = false;
-         //   lblID.Visible = false;
-          //  lblNom.Visible = false;
-           // lblSal.Visible = false;
-         //   lblSalida.Visible = false;
+         
+        }
+
+        private void btnhistorial_Click(object sender, EventArgs e)
+        {
+            string his = string.Format("select * from historial where id='{0}'", textBox1.Text);
+            dataGridView1.DataSource = db.SelectDataTable(his);
         }
     }
 }

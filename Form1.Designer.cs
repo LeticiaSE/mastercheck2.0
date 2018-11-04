@@ -30,7 +30,6 @@
         {
             this.btnid = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -47,10 +46,13 @@
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.lblpuesto = new System.Windows.Forms.Label();
+            this.cbPuesto = new System.Windows.Forms.ComboBox();
+            this.btnselimagen = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnid
@@ -73,16 +75,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(360, 231);
             this.dataGridView1.TabIndex = 2;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(580, 333);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 31);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // btnRefresh
             // 
             this.btnRefresh.Location = new System.Drawing.Point(580, 285);
@@ -99,6 +91,8 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 26);
             this.txtId.TabIndex = 5;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
+            this.txtId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtId_KeyPress);
             // 
             // txtNombre
             // 
@@ -106,6 +100,8 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 26);
             this.txtNombre.TabIndex = 6;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtApellido
             // 
@@ -113,6 +109,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 26);
             this.txtApellido.TabIndex = 7;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // lblid
             // 
@@ -153,9 +150,11 @@
             // txtEdad
             // 
             this.txtEdad.Location = new System.Drawing.Point(111, 254);
+            this.txtEdad.MaxLength = 3;
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(43, 26);
             this.txtEdad.TabIndex = 13;
+            this.txtEdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdad_KeyPress);
             // 
             // lblDepartamento
             // 
@@ -181,7 +180,7 @@
             this.editarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(773, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(773, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -192,36 +191,27 @@
             this.eliminarToolStripMenuItem,
             this.insertarToolStripMenuItem});
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.modificarToolStripMenuItem.Text = "Modificar";
+            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // insertarToolStripMenuItem
             // 
             this.insertarToolStripMenuItem.Name = "insertarToolStripMenuItem";
-            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
+            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.insertarToolStripMenuItem.Text = "Insertar";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(626, 372);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(86, 28);
-            this.btnGuardar.TabIndex = 18;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblpuesto
             // 
@@ -232,13 +222,41 @@
             this.lblpuesto.TabIndex = 19;
             this.lblpuesto.Text = "Puesto";
             // 
+            // cbPuesto
+            // 
+            this.cbPuesto.FormattingEnabled = true;
+            this.cbPuesto.Location = new System.Drawing.Point(111, 213);
+            this.cbPuesto.Name = "cbPuesto";
+            this.cbPuesto.Size = new System.Drawing.Size(121, 28);
+            this.cbPuesto.TabIndex = 20;
+            // 
+            // btnselimagen
+            // 
+            this.btnselimagen.Location = new System.Drawing.Point(313, 354);
+            this.btnselimagen.Name = "btnselimagen";
+            this.btnselimagen.Size = new System.Drawing.Size(75, 34);
+            this.btnselimagen.TabIndex = 21;
+            this.btnselimagen.Text = "Imagen";
+            this.btnselimagen.UseVisualStyleBackColor = true;
+            this.btnselimagen.Click += new System.EventHandler(this.btnselimagen_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(451, 307);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 81);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 412);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnselimagen);
+            this.Controls.Add(this.cbPuesto);
             this.Controls.Add(this.lblpuesto);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.cbDepartamento);
             this.Controls.Add(this.lblDepartamento);
             this.Controls.Add(this.txtEdad);
@@ -250,7 +268,6 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnid);
             this.Controls.Add(this.menuStrip1);
@@ -260,6 +277,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +287,6 @@
 
         private System.Windows.Forms.Button btnid;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtNombre;
@@ -286,8 +303,10 @@
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertarToolStripMenuItem;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lblpuesto;
+        private System.Windows.Forms.ComboBox cbPuesto;
+        private System.Windows.Forms.Button btnselimagen;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
