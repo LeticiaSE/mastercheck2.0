@@ -16,3 +16,4 @@ C:\Users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2.
 C:\Users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2._0.Check.resources
 C:\Users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2._0.Login.resources
 C:\Users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2._0.Consultar.resources
+C:\Users\user\source\repos\MasterCheck2.0\MasterCheck2.0\obj\Debug\MasterCheck2._0.Consulta2.resources

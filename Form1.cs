@@ -13,7 +13,7 @@ namespace MasterCheck2._0
 {
     public partial class Form1 : Form
     {
-        string cnn = @"SERVER=localhost; DATABASE=mastercheck; UID=root; PASSWORD=12345";
+      
         string[] dept = new string[5] { "Computacion", "Industrial", "Bioquimica", "Literatura", "Aeronatica" };
         string[] puesto = new string[2] { "Empleado", "Profesor" };
         public Form1()

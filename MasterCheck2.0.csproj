@@ -57,6 +57,12 @@
     <Compile Include="Check.Designer.cs">
       <DependentUpon>Check.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consulta2.0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta2.0.Designer.cs">
+      <DependentUpon>Consulta2.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Check.resx">
       <DependentUpon>Check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta2.0.resx">
+      <DependentUpon>Consulta2.0.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultar.resx">
       <DependentUpon>Consultar.cs</DependentUpon>
