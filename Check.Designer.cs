@@ -42,12 +42,14 @@
             this.btnhistorial = new System.Windows.Forms.Button();
             this.lbldepartamento = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Insertar = new System.Windows.Forms.Timer(this.components);
+            this.Eliminar = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEx
             // 
-            this.btnEx.Location = new System.Drawing.Point(380, 376);
+            this.btnEx.Location = new System.Drawing.Point(398, 376);
             this.btnEx.Name = "btnEx";
             this.btnEx.Size = new System.Drawing.Size(75, 44);
             this.btnEx.TabIndex = 0;
@@ -61,6 +63,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblID
             // 
@@ -121,7 +124,7 @@
             // 
             // mensaje
             // 
-            this.mensaje.Interval = 5000;
+            this.mensaje.Interval = 4000;
             this.mensaje.Tick += new System.EventHandler(this.mensaje_Tick);
             // 
             // lbldept
@@ -135,7 +138,7 @@
             // 
             // btnhistorial
             // 
-            this.btnhistorial.Location = new System.Drawing.Point(612, 385);
+            this.btnhistorial.Location = new System.Drawing.Point(612, 376);
             this.btnhistorial.Name = "btnhistorial";
             this.btnhistorial.Size = new System.Drawing.Size(79, 44);
             this.btnhistorial.TabIndex = 9;
@@ -155,17 +158,27 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(67, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(324, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(696, 211);
+            this.dataGridView1.Size = new System.Drawing.Size(368, 211);
             this.dataGridView1.TabIndex = 11;
+            // 
+            // Insertar
+            // 
+            this.Insertar.Interval = 3000;
+            this.Insertar.Tick += new System.EventHandler(this.Insertar_Tick);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.Interval = 100000;
+            this.Eliminar.Tick += new System.EventHandler(this.Eliminar_Tick);
             // 
             // Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(918, 452);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbldepartamento);
             this.Controls.Add(this.btnhistorial);
@@ -202,5 +215,7 @@
         private System.Windows.Forms.Button btnhistorial;
         private System.Windows.Forms.Label lbldepartamento;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Timer Insertar;
+        private System.Windows.Forms.Timer Eliminar;
     }
 }

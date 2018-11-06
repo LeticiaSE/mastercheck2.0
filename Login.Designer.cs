@@ -28,26 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtusuario = new System.Windows.Forms.TextBox();
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.cbUsuarios = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // txtusuario
-            // 
-            this.txtusuario.Location = new System.Drawing.Point(191, 237);
-            this.txtusuario.Name = "txtusuario";
-            this.txtusuario.Size = new System.Drawing.Size(100, 26);
-            this.txtusuario.TabIndex = 0;
             // 
             // txtpass
             // 
             this.txtpass.Location = new System.Drawing.Point(191, 286);
             this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(100, 26);
             this.txtpass.TabIndex = 1;
+            this.txtpass.TextChanged += new System.EventHandler(this.txtpass_TextChanged);
             // 
             // label1
             // 
@@ -77,17 +72,28 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // cbUsuarios
+            // 
+            this.cbUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUsuarios.FormattingEnabled = true;
+            this.cbUsuarios.Location = new System.Drawing.Point(191, 237);
+            this.cbUsuarios.Name = "cbUsuarios";
+            this.cbUsuarios.Size = new System.Drawing.Size(121, 28);
+            this.cbUsuarios.TabIndex = 5;
+            this.cbUsuarios.SelectedIndexChanged += new System.EventHandler(this.cbUsuarios_SelectedIndexChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 396);
+            this.Controls.Add(this.cbUsuarios);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtpass);
-            this.Controls.Add(this.txtusuario);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -95,11 +101,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtusuario;
         private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.ComboBox cbUsuarios;
     }
 }

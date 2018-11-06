@@ -71,12 +71,20 @@ namespace MasterCheck2._0
             DataTable dt = new DataTable();
             DataSet ds = new DataSet();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            da.Fill(dt);
+          //  MemoryStream ms = new MemoryStream();
+       //     FileStream fs;
+          //  Byte[] bindata;
+            
+           // bindata = (byte[])(cmd.ExecuteScalar());
+          //  da.Fill(dt);
             
             foreach (DataRow dr in dt.Rows)
             {
 
-
+          //      ms.Write(bindata, 0, bindata.Length);
+               // pictureBox1.Image = new Bitmap(ms);
+           ////     fs = new FileStream(Name, FileMode.Create, FileAccess.Write);
+               // ms.WriteTo(fs);
                 //txtId.Text = dr["idrfid"].ToString();
                 txtNombre.Text = dr["Nombre"].ToString();
                txtapellido.Text = dr["Apellido"].ToString();

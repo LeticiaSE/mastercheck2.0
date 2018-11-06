@@ -16,7 +16,7 @@ namespace MasterCheck2._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Consulta2());
+            Application.Run(new Lista());
         }
     }
 }

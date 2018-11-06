@@ -81,6 +81,7 @@ namespace MasterCheck2._0
         {
             Consultar c = new Consultar();
             c.Show();
+            this.Hide();
         }
 
         private void txtId_TextChanged(object sender, EventArgs e)
