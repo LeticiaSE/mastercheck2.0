@@ -49,6 +49,9 @@ namespace MasterCheck2._0
                 if (db.executecommand(Agregar))
                 {
                     MessageBox.Show("Agregado al Sistema");
+                    txtApellido.Text = txtEdad.Text = txtId.Text = txtNombre.Text =  "";
+                    cbPuesto.Text = null;
+                    cbDepartamento.Text = null;
                 }
             }
             catch(Exception ex)
@@ -130,6 +133,13 @@ namespace MasterCheck2._0
             {
                 pictureBox1.Image = Image.FromFile(opf.FileName);
             }
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Lista l = new Lista();
+            l.Show();
+            this.Hide();
         }
     }
 }

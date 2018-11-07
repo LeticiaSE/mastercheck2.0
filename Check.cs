@@ -160,7 +160,7 @@ namespace MasterCheck2._0
                         lblSal.Visible = true;
                         lblSalida.Visible = true;
                         mensaje.Start();
-                        string hist = string.Format("select * from entrada where id='{0}'", textBox1.Text);
+                        string hist = string.Format("select id, sal as salida from salida where id='{0}'", textBox1.Text);
                         dataGridView1.DataSource = db.SelectDataTable(hist);
                     }
                     else
@@ -196,7 +196,8 @@ namespace MasterCheck2._0
                        
                      //   mensaje.Enabled = true;
                         mensaje.Start();
-
+                        string hist = string.Format("select * from entrada where id='{0}'", textBox1.Text);
+                        dataGridView1.DataSource = db.SelectDataTable(hist);
                     }
                 }
             }

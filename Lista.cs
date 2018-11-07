@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Microsoft.Office.Interop;
 namespace MasterCheck2._0
 {
@@ -15,10 +16,15 @@ namespace MasterCheck2._0
         string c = string.Format("Select idrfid, Nombre, FechaIn, Asistencias, Faltas, Puesto, noEmp from registros");
         string es = string.Format("select * from entrada");
         string s = string.Format("select * from salida");
+        string[] lis = new string[3] {"Empleados","Salida","Entrada"};
         public Lista()
         {
             InitializeComponent();
-            dataGridView1.DataSource = db.SelectDataTable(c);
+            //   dataGridView1.DataSource = db.SelectDataTable(c);
+            for (int i = 0; i < lis.Length; i++)
+            {
+                cbcmd.Items.Add(lis[i]);
+            }
         }
         BaseDeDatos db = new BaseDeDatos();
         private void copy()
@@ -30,30 +36,93 @@ namespace MasterCheck2._0
         }
         private void btnExp_Click(object sender, EventArgs e)
         {
-     //   string c = string.Format("Select idrfid, Nombre, FechaIn, Asistencias, Faltas, Puesto, noEmp from registros");
-            copy();
-            Microsoft.Office.Interop.Excel.Application xlexcel;
-            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
-
-            object misValue = System.Reflection.Missing.Value;
-            xlexcel = new Microsoft.Office.Interop.Excel.Application();
-            xlexcel.Visible = true;
-            xlWorkBook = xlexcel.Workbooks.Add(misValue);
-            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
-            CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            //   string c = string.Format("Select idrfid, Nombre, FechaIn, Asistencias, Faltas, Puesto, noEmp from registros");
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "export.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                //ToCsV(dataGridView1, @"c:\export.xls");
+                ToCsV(dataGridView1, sfd.FileName); // Here dataGridview1 is your grid view name
+            }
         }
+
+
+        private void ToCsV(DataGridView dGV, string filename)
+        {
+            string stOutput = "";
+            // Export titles:
+            string sHeaders = "";
+
+            for (int j = 0; j < dGV.Columns.Count; j++)
+                sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+            stOutput += sHeaders + "\r\n";
+            // Export data.
+            for (int i = 0; i < dGV.RowCount - 1; i++)
+            {
+                string stLine = "";
+                for (int j = 0; j < dGV.Rows[i].Cells.Count; j++)
+                    stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                stOutput += stLine + "\r\n";
+            }
+            Encoding utf16 = Encoding.GetEncoding(1254);
+            byte[] output = utf16.GetBytes(stOutput);
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write(output, 0, output.Length); //write the encoded file
+            bw.Flush();
+            bw.Close();
+            fs.Close();
+        }
+
 
         private void btnemp_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.SelectDataTable(c);
+            Form1 f = new Form1();
+            f.Show();
+            this.Hide();
         }
 
         private void btnhis_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.SelectDataTable(es);
+           
+        }
+
+        private void tEmpleados_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tSalidas_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tentradas_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cbcmd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbcmd.Text == "Empleados")
+            {
+                dataGridView1.DataSource = db.SelectDataTable(c);
+            }
+            else if(cbcmd.Text == "Salida")
+            {
+                dataGridView1.DataSource = db.SelectDataTable(s);
+
+            }
+            else if(cbcmd.Text == "Entrada")
+            {
+                dataGridView1.DataSource = db.SelectDataTable(es);
+            }
         }
     }
 }

@@ -50,8 +50,10 @@
             this.lbledad = new System.Windows.Forms.Label();
             this.txtedad = new System.Windows.Forms.TextBox();
             this.btnregresar = new System.Windows.Forms.Button();
+            this.dgtSal = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Consult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtSal)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -99,11 +101,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(890, 341);
+            this.button1.Location = new System.Drawing.Point(509, 341);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 38);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Historial";
+            this.button1.Text = "Exportar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -149,7 +151,7 @@
             this.Consult.Location = new System.Drawing.Point(509, 88);
             this.Consult.Name = "Consult";
             this.Consult.RowTemplate.Height = 28;
-            this.Consult.Size = new System.Drawing.Size(467, 247);
+            this.Consult.Size = new System.Drawing.Size(243, 247);
             this.Consult.TabIndex = 14;
             // 
             // lbltime
@@ -237,11 +239,22 @@
             this.btnregresar.UseVisualStyleBackColor = true;
             this.btnregresar.Click += new System.EventHandler(this.btnregresar_Click);
             // 
+            // dgtSal
+            // 
+            this.dgtSal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgtSal.Location = new System.Drawing.Point(746, 88);
+            this.dgtSal.Name = "dgtSal";
+            this.dgtSal.RowHeadersWidth = 56;
+            this.dgtSal.RowTemplate.Height = 28;
+            this.dgtSal.Size = new System.Drawing.Size(278, 247);
+            this.dgtSal.TabIndex = 24;
+            // 
             // Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 466);
+            this.ClientSize = new System.Drawing.Size(1036, 470);
+            this.Controls.Add(this.dgtSal);
             this.Controls.Add(this.btnregresar);
             this.Controls.Add(this.txtedad);
             this.Controls.Add(this.lbledad);
@@ -262,11 +275,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombre);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Consultar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Consult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtSal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +310,6 @@
         private System.Windows.Forms.Label lbledad;
         private System.Windows.Forms.TextBox txtedad;
         private System.Windows.Forms.Button btnregresar;
+        private System.Windows.Forms.DataGridView dgtSal;
     }
 }

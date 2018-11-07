@@ -69,34 +69,28 @@ namespace MasterCheck2._0
             cmd.CommandText = "select * from registros where idrfid='" + comboBox1.SelectedItem.ToString() + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            DataSet ds = new DataSet();
+          
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-          //  MemoryStream ms = new MemoryStream();
-       //     FileStream fs;
-          //  Byte[] bindata;
-            
-           // bindata = (byte[])(cmd.ExecuteScalar());
-          //  da.Fill(dt);
-            
+      
+            da.Fill(dt);
+
             foreach (DataRow dr in dt.Rows)
             {
-
-          //      ms.Write(bindata, 0, bindata.Length);
-               // pictureBox1.Image = new Bitmap(ms);
-           ////     fs = new FileStream(Name, FileMode.Create, FileAccess.Write);
-               // ms.WriteTo(fs);
-                //txtId.Text = dr["idrfid"].ToString();
+             
+               
+              //  comboBox1.Text = dr["idrfid"].ToString();
                 txtNombre.Text = dr["Nombre"].ToString();
                txtapellido.Text = dr["Apellido"].ToString();
                txtedad.Text = dr["Edad"].ToString();
                 cbDepartamento.Text = dr["Departamento"].ToString();
                 cbpuesto.Text = dr["puesto"].ToString();
+                string his = string.Format("select * from entrada where id='{0}'", comboBox1.Text);
+                string sal = string.Format("select sal as Salida from salida where id='{0}'", comboBox1.Text);
+                Consult.DataSource = db.SelectDataTable(his);
+                dgtSal.DataSource = db.SelectDataTable(sal);
 
-                // byte[] img = (byte[])dt.Rows[0][10];
-               
-              
-              //  da.Dispose();
             }
+            cn.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
