@@ -13,13 +13,14 @@ namespace MasterCheck2._0
 {
     public partial class Lista : Form
     {
-        string c = string.Format("Select idrfid, Nombre, FechaIn, Asistencias, Faltas, Puesto, noEmp from registros");
+        string c = string.Format("Select idrfid, noEmp as `No Empleado`, Nombre, FechaIn as `Fecha de Ingreso`, Asistencias, Faltas, Puesto from registros");
         string es = string.Format("select * from entrada");
         string s = string.Format("select * from salida");
         string[] lis = new string[3] {"Empleados","Salida","Entrada"};
         public Lista()
         {
             InitializeComponent();
+            btnExp.Enabled = false;
             //   dataGridView1.DataSource = db.SelectDataTable(c);
             for (int i = 0; i < lis.Length; i++)
             {
@@ -113,15 +114,17 @@ namespace MasterCheck2._0
             if(cbcmd.Text == "Empleados")
             {
                 dataGridView1.DataSource = db.SelectDataTable(c);
+                btnExp.Enabled = true;
             }
             else if(cbcmd.Text == "Salida")
             {
                 dataGridView1.DataSource = db.SelectDataTable(s);
-
+                btnExp.Enabled = true;
             }
             else if(cbcmd.Text == "Entrada")
             {
                 dataGridView1.DataSource = db.SelectDataTable(es);
+                btnExp.Enabled = true;
             }
         }
     }
