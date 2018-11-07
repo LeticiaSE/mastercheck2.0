@@ -13,6 +13,8 @@ namespace MasterCheck2._0
     public partial class Lista : Form
     {
         string c = string.Format("Select idrfid, Nombre, FechaIn, Asistencias, Faltas, Puesto, noEmp from registros");
+        string es = string.Format("select * from entrada");
+        string s = string.Format("select * from salida");
         public Lista()
         {
             InitializeComponent();
@@ -42,6 +44,16 @@ namespace MasterCheck2._0
             Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
             CR.Select();
             xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+
+        private void btnemp_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.SelectDataTable(c);
+        }
+
+        private void btnhis_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.SelectDataTable(es);
         }
     }
 }

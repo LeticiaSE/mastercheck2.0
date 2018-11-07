@@ -104,7 +104,7 @@ namespace MasterCheck2._0
             lblSal.Text = "";
             lbldepartamento.Text = "";
             textBox1.Text = "";
-         
+            dataGridView1.DataSource = null;
         }
 
         private void btnhistorial_Click(object sender, EventArgs e)
@@ -160,7 +160,8 @@ namespace MasterCheck2._0
                         lblSal.Visible = true;
                         lblSalida.Visible = true;
                         mensaje.Start();
-
+                        string hist = string.Format("select * from entrada where id='{0}'", textBox1.Text);
+                        dataGridView1.DataSource = db.SelectDataTable(hist);
                     }
                     else
                     {

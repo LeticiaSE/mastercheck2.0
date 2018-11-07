@@ -30,6 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnExp = new System.Windows.Forms.Button();
+            this.btnemp = new System.Windows.Forms.Button();
+            this.btnhis = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,19 +46,41 @@
             // 
             // btnExp
             // 
-            this.btnExp.Location = new System.Drawing.Point(115, 496);
+            this.btnExp.Location = new System.Drawing.Point(40, 480);
             this.btnExp.Name = "btnExp";
-            this.btnExp.Size = new System.Drawing.Size(75, 37);
+            this.btnExp.Size = new System.Drawing.Size(87, 37);
             this.btnExp.TabIndex = 1;
             this.btnExp.Text = "Exportar";
             this.btnExp.UseVisualStyleBackColor = true;
             this.btnExp.Click += new System.EventHandler(this.btnExp_Click);
+            // 
+            // btnemp
+            // 
+            this.btnemp.Location = new System.Drawing.Point(488, 480);
+            this.btnemp.Name = "btnemp";
+            this.btnemp.Size = new System.Drawing.Size(99, 39);
+            this.btnemp.TabIndex = 2;
+            this.btnemp.Text = "Empleados";
+            this.btnemp.UseVisualStyleBackColor = true;
+            this.btnemp.Click += new System.EventHandler(this.btnemp_Click);
+            // 
+            // btnhis
+            // 
+            this.btnhis.Location = new System.Drawing.Point(593, 480);
+            this.btnhis.Name = "btnhis";
+            this.btnhis.Size = new System.Drawing.Size(110, 37);
+            this.btnhis.TabIndex = 3;
+            this.btnhis.Text = "Historial";
+            this.btnhis.UseVisualStyleBackColor = true;
+            this.btnhis.Click += new System.EventHandler(this.btnhis_Click);
             // 
             // Lista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 545);
+            this.Controls.Add(this.btnhis);
+            this.Controls.Add(this.btnemp);
             this.Controls.Add(this.btnExp);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Lista";
@@ -70,5 +94,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnExp;
+        private System.Windows.Forms.Button btnemp;
+        private System.Windows.Forms.Button btnhis;
     }
 }
